@@ -1,0 +1,217 @@
+:root {
+  --SLICE-WIDTH: 355px;
+  --THUMB-COLOR: #0b1c4a;
+  --THUMB-SIZE: 14px;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+}
+.mainContainer-inner {
+  max-height: 600px;
+  width: 100%;
+  overflow-y: scroll;
+}
+.mainContainer table{}
+.mainContainer table th{}
+.mainContainer table tr td,
+.mainContainer table tr th{
+  padding: 15px 20px;
+  background-color: transparent;
+}
+.mainContainer table tr th{
+  background-color: #dfdfdf;
+}
+.mainContainer table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Removing the default appearance */
+.thumb,
+.thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumb:focus {
+  outline: none;
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0px;
+  width: var(--SLICE-WIDTH);
+}
+
+.thumb--left {
+  z-index: 3;
+}
+
+.thumb--right {
+  z-index: 4;
+}
+
+/* For Chrome browsers */
+.thumb::-webkit-slider-thumb {
+  background-color: var(--THUMB-COLOR);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  height: var(--THUMB-SIZE);
+  width: var(--THUMB-SIZE);
+  margin-top: 4px;
+  pointer-events: all;
+  position: relative;
+}
+
+/* For Firefox browsers */
+.thumb::-moz-range-thumb {
+  background-color: var(--THUMB-COLOR);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  height: var(--THUMB-SIZE);
+  width: var(--THUMB-SIZE);
+  margin-top: 4px;
+  pointer-events: all;
+  position: relative;
+}
+
+.slider {
+  position: relative;
+  width: calc(var(--SLICE-WIDTH) - 5px);
+  margin-left: 2px;
+}
+
+.slider__track,
+.slider__range {
+  position: absolute;
+  bottom: -7px; /* Here you move the slice up or down only on any browser that is not firefox */
+}
+
+@supports (-moz-appearance: none) {
+  /* This check if the browser is firefox */
+  .slider__track,
+  .slider__range {
+    bottom: -5px; /* Here you move the slice up or down only on firefox browser */
+  }
+}
+
+.slider__track,
+.slider__range {
+  border-radius: 3px;
+  height: 5px; /* defines the height of the slice */
+}
+
+.slider__track {
+  background-color: hsl(205, 25%, 75%);
+  width: 100%;
+  z-index: 1;
+}
+
+.slider__range {
+  background-color: #65a6d6;
+  z-index: 2;
+}
+
+.slider__left-value,
+.slider__right-value {
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: px;
+}
+
+.slider__left-value {
+  left: 6px;
+}
+
+.slider__right-value {
+  right: -4px;
+}
+
+.values {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: var(--SLICE-WIDTH);
+}
+.avatar {
+  height: 40px;
+  margin-bottom: -15px;
+  margin-top: -15px;
+  width: 40px;
+}
+/* wrapper */
+.wrapper {
+  align-items: stretch;
+  display: flex;
+  width: 100%;
+}
+.sidebar {
+  background: #0b1c4a;
+  color: #fff;
+  direction: ltr;
+  max-width: 100px;
+  min-width: 100px;
+  padding-top: 30px;
+  position: relative;
+  transition: margin-left .35s ease-in-out,left .35s ease-in-out,margin-right .35s ease-in-out,right .35s ease-in-out;
+}
+.logo{
+  text-align: center;
+}
+.icon-list{
+  text-align: center;
+}
+.bottomHeader{
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+  left: 0;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0;
+  transition: margin-left .35s ease-in-out,left .35s ease-in-out,margin-right .35s ease-in-out,right .35s ease-in-out;
+  width: 100%;
+  background-color: #f4f7ff;
+}
+.custom-header{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+}
+.header-search{
+  width: calc(100% - 200px);
+}
+.header-search input{
+  border: none;
+  border-radius: 0;
+}
+.header-search button{
+  background-color: #fff;
+}
+.filterCont{
+  padding: 100px;
+}
+.fliterSlide{
+  display: flex;
+  align-items: end;
+}
+.fliterSlide h4{
+  padding-right: 50px;
+}
